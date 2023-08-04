@@ -5,7 +5,7 @@ const axios = require('axios');
 
 const app = express();
 app.use(bodyParser.json());
-app.use(cors({origin: "http://localhost:3000"}));
+app.use(cors({origin: "https://andreibold.github.io/StockExchangeApp/"}));
 
 require("dotenv").config();
 const PORT = process.env.PORT || 5000;

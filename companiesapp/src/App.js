@@ -14,7 +14,7 @@ function App() {
   useEffect(() => {
     const fetchCompanies = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/companies");
+        const response = await axios.get("https://stock-exchange-app.onrender.com/companies");
         setOptions(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -27,7 +27,7 @@ function App() {
     try {
       console.log("selected: " + companyName);
       const response = await axios.get(
-        `http://localhost:5000/companies/stocks/${companyName}`
+        `https://stock-exchange-app.onrender.com/companies/stocks/${companyName}`
       );
       const companyData = response.data.dataset_data.data;
       setSelectedCompanyData(companyData);
