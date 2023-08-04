@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/StockExchangeApp/static/css/main.ec1448f7.css",
+    "main.js": "/StockExchangeApp/static/js/main.04346e29.js",
+    "index.html": "/StockExchangeApp/index.html",
+    "main.ec1448f7.css.map": "/StockExchangeApp/static/css/main.ec1448f7.css.map",
+    "main.04346e29.js.map": "/StockExchangeApp/static/js/main.04346e29.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ec1448f7.css",
+    "static/js/main.04346e29.js"
+  ]
+}
