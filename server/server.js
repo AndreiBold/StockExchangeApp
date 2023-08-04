@@ -5,10 +5,38 @@ const axios = require('axios');
 
 const app = express();
 app.use(bodyParser.json());
-app.use(cors({origin: "https://andreibold.github.io/StockExchangeApp/"}));
 
 require("dotenv").config();
 const PORT = process.env.PORT || 5000;
+
+// Custom middleware to handle CORS with specific query parameters
+const corsWithOptions = (req, res, next) => {
+  const allowedOrigins = [
+    'https://andreibold.github.io/StockExchangeApp/',
+    'https://stock-exchange-app.onrender.com/companies',
+    'https://stock-exchange-app.onrender.com/companies/stocks/'
+
+  ];
+
+  // Check if the request has the required query parameter
+  const requiredQueryParam = req.query.name;
+  // Check if the origin is allowed and if the required query parameter is present
+  if (allowedOrigins.includes(req.headers.origin) && requiredQueryParam) {
+    res.header('Access-Control-Allow-Origin', req.headers.origin);
+  } else {
+    res.header('Access-Control-Allow-Origin', '');
+  }
+
+  // Allow other CORS headers
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept'
+  );
+
+  next();
+};
+
+app.use(corsWithOptions);
 
 function extractDatasetCodes(inputString) {
     // Remove all "\" characters from the string
